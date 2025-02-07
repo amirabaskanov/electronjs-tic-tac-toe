@@ -1,3 +1,5 @@
+
+
 const { app, BrowserWindow } = require('electron')
 // include the Node.js 'path' module at the top of your file
 const path = require('node:path')
@@ -25,5 +27,3 @@ const createWindow = () => {
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
   })
-
-  
