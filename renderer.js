@@ -13,6 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 4, 8], [2, 4, 6] // Diagonals
     ];
 
+    function endGame(result) {
+        gameActive = false;
+        switch(result) {
+            case 'win':
+                window.location.href = 'pages/win.html';
+                break;
+            case 'lose':
+                window.location.href = 'pages/lose.html';
+                break;
+            case 'draw':
+                window.location.href = 'pages/draw.html';
+                break;
+        }
+    }
+
     function handleCellClick(e) {
         if (currentPlayer !== 'X' || !gameActive) return;
 
@@ -27,12 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkWin('X')) {
             statusDisplay.textContent = 'You win!';
             gameActive = false;
+            endGame('win');
             return;
         }
         
         if (checkDraw()) {
             statusDisplay.textContent = "Game ended in a draw!";
             gameActive = false;
+            endGame('draw');
             return;
         }
         
@@ -57,12 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkWin('O')) {
             statusDisplay.textContent = 'Computer wins!';
             gameActive = false;
+            endGame('lose');
             return;
         }
         
         if (checkDraw()) {
             statusDisplay.textContent = "Game ended in a draw!";
             gameActive = false;
+            endGame('draw');
             return;
         }
         
@@ -120,4 +139,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resetButton.addEventListener('click', resetGame);
+
 });
