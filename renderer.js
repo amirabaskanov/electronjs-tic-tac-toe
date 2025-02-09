@@ -100,8 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function makeMove(index, player) {
         gameBoard[index] = player;
-        cells[index].textContent = player;
-        cells[index].classList.add(player.toLowerCase());
+        const cell = cells[index];
+        
+        // Remove text content
+        cell.textContent = '';
+        
+        // Add appropriate class
+        cell.classList.add(player.toLowerCase());
+        
+        // Optional: Add sound effect
+        // playSound('move'); // You'll need to implement this
     }
 
     function computerMove() {

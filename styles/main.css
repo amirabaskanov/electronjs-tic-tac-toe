@@ -1,6 +1,13 @@
 /* Global Styles */
+@font-face {
+    font-family: 'Pixelify Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url(../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf) format('woff2');
+  }
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Pixelify Sans', 'Arial', sans-serif;
     background: #2c3e50;
     color: #ecf0f1;
     display: flex;
@@ -24,6 +31,7 @@ h1 {
 }
 
 button {
+    font-family: 'Pixelify Sans', 'Arial', sans-serif;
     background: #3498db;
     color: white;
     border: none;
@@ -67,10 +75,6 @@ button:hover {
     margin: 20px;
 }
 
-.cell.x {
-    color: #e74c3c;
-}
-
 .cell:hover:not(.x):not(.o) {
     background-color: #f0f0f0;
 }
@@ -110,10 +114,31 @@ body.computer-turn .cell {
     cursor: not-allowed;
 }
 
-/* Highlight computer's moves */
+/* Icon Styles */
+.cell.x {
+    background-image: url('../assets/images/Kuromi.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .cell.o {
-    color: #2980b9;
-    font-weight: bold;
+    background-image: url('../assets/images/Heart.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Remove text display */
+.cell {
+    font-size: 0; /* Hide any remaining text */
+    color: transparent;
+}
+
+/* Adjust cell size if needed */
+.cell {
+    width: 100px;
+    height: 100px;
 }
 
 /* Pulse animation during computer's turn */
@@ -148,5 +173,15 @@ body:not(.computer-turn) .cell.winning-cell:hover {
 /* Add transition for smooth effects */
 .cell {
     transition: all 0.3s ease-in-out;
+}
+
+/* Show cursor on empty cells */
+.cell:not(.x):not(.o) {
+    cursor: pointer;
+}
+
+/* Hover effect for empty cells */
+.cell:not(.x):not(.o):hover {
+    background-color: #3a506b;
 }
 
