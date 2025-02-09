@@ -10,6 +10,7 @@ body {
     gap: 5px;
     margin: 20px;
 }
+
 .cell {
     width: 100px;
     height: 100px;
@@ -19,7 +20,42 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
+
+.cell.x {
+    color: #e74c3c;
+}
+
+.cell.o {
+    color: #2980b9;
+}
+
+.cell:hover:not(.x):not(.o) {
+    background-color: #f0f0f0;
+}
+
+#status {
+    font-size: 24px;
+    margin: 20px;
+    padding: 10px;
+}
+
+#reset {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#reset:hover {
+    background-color: #27ae60;
+}
+
 .cell:hover {
     background-color: #f0f0f0;
 }
@@ -31,4 +67,26 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+}
+
+/* Disable cursor during computer's turn */
+body.computer-turn .cell {
+    cursor: not-allowed;
+}
+
+/* Highlight computer's moves */
+.cell.o {
+    color: #2980b9;
+    font-weight: bold;
+}
+
+/* Pulse animation during computer's turn */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.computer-turn #status {
+    animation: pulse 1s infinite;
 }
