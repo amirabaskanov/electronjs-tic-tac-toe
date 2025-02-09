@@ -15,17 +15,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function endGame(result) {
         gameActive = false;
-        switch(result) {
-            case 'win':
-                window.location.href = 'pages/win.html';
-                break;
-            case 'lose':
-                window.location.href = 'pages/lose.html';
-                break;
-            case 'draw':
-                window.location.href = 'pages/draw.html';
-                break;
+        
+        // Highlight winning line if applicable
+        if (result === 'win' || result === 'lose') {
+            highlightWinningLine();
         }
+
+        // Show countdown before redirect
+        let countdown = 1;
+        statusDisplay.textContent = `Redirecting in ${countdown}...`;
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            statusDisplay.textContent = `Redirecting in ${countdown}...`;
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(countdownInterval);
+            switch(result) {
+                case 'win':
+                    window.location.href = 'pages/win.html';
+                    break;
+                case 'lose':
+                    window.location.href = 'pages/lose.html';
+                    break;
+                case 'draw':
+                    window.location.href = 'pages/draw.html';
+                    break;
+            }
+        }, 1500); // 1.5 second delay
+    }
+
+    function highlightWinningLine() {
+        const winningCombo = getWinningCombo();
+        if (winningCombo) {
+            winningCombo.forEach(index => {
+                cells[index].classList.add('winning-cell');
+            });
+        }
+    }
+
+    function getWinningCombo() {
+        for (let combo of winningCombinations) {
+            const [a, b, c] = combo;
+            if (gameBoard[a] !== '' && 
+                gameBoard[a] === gameBoard[b] && 
+                gameBoard[b] === gameBoard[c]) {
+                return combo;
+            }
+        }
+        return null;
     }
 
     function handleCellClick(e) {
