@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show countdown before redirect
         let countdown = 1;
-        statusDisplay.textContent = `Redirecting in ${countdown}...`;
+        statusDisplay.textContent = `Results in ${countdown}...`;
         const countdownInterval = setInterval(() => {
             countdown--;
-            statusDisplay.textContent = `Redirecting in ${countdown}...`;
+            statusDisplay.textContent = `Results in ${countdown}...`;
         }, 1000);
 
         setTimeout(() => {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Switch to computer's turn
         currentPlayer = 'O';
-        statusDisplay.textContent = "Computer's turn...";
+        statusDisplay.textContent = "My turn...";
         
         setTimeout(computerMove, 500);
     }
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         makeMove(move, 'O');
         
         if (checkWin('O')) {
-            statusDisplay.textContent = 'Computer wins!';
+            statusDisplay.textContent = 'Amir wins!';
             gameActive = false;
             endGame('lose');
             return;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         currentPlayer = 'X';
-        statusDisplay.textContent = "Your turn (X)";
+        statusDisplay.textContent = "Your turn";
     }
 
     function checkWin(player) {
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPlayer = 'X';
         gameBoard = ['', '', '', '', '', '', '', '', ''];
         gameActive = true;
-        statusDisplay.textContent = "Your turn (X)";
+        statusDisplay.textContent = "Your turn";
         cells.forEach(cell => {
             cell.textContent = '';
             cell.classList.remove('x', 'o');
