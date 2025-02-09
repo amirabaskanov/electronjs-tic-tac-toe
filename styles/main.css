@@ -210,3 +210,18 @@ body:not(.computer-turn) .cell.winning-cell:hover {
     width: 400px;
     height: 200px;
 }
+
+/* CSS */
+.jumping-text {
+    animation: jump 1.5s ease-out infinite;
+    display: inline-block; /* Needed for transform to work */
+}
+  
+@keyframes jump { 
+    0%, 100% {
+    transform: translateY(0);
+    }
+    50% {
+    transform: translateY(-15px);
+    }
+}
