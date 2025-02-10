@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const statusDisplay = document.getElementById('status');
     const cells = document.querySelectorAll('.cell');
+    const buttons = document.querySelectorAll('button');
     const resetButton = document.getElementById('reset');
+
+    const selectsound = new Audio('./assets/sounds/select.mp3');
+    const buttonsound = new Audio('./assets/sounds/button.mp3');
 
     const winningCombinations = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -75,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gameBoard[cellIndex] !== '') return;
 
         // User's move
+        selectsound.play();
         makeMove(cellIndex, 'X');
         
         if (checkWin('X')) {
@@ -107,9 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Add appropriate class
         cell.classList.add(player.toLowerCase());
-        
-        // Optional: Add sound effect
-        // playSound('move'); // You'll need to implement this
     }
 
     function computerMove() {
@@ -169,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetGame() {
+        buttonsound.play();
         currentPlayer = 'X';
         gameBoard = ['', '', '', '', '', '', '', '', ''];
         gameActive = true;
@@ -182,6 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners
     cells.forEach(cell => {
         cell.addEventListener('click', handleCellClick);
+    });
+
+    buttons.forEach(button => {
+        button.addEventListener('click', buttonsound.play());
     });
 
     resetButton.addEventListener('click', resetGame);
