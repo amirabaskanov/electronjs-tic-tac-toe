@@ -57,7 +57,7 @@ npm start
 
 # Build platform-specific package
 npm run make
-
+```
 
 **## Usage**
 Game Controls
