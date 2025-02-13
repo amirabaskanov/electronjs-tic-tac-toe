@@ -11,7 +11,6 @@ A cross-platform desktop implementation of Tic-Tac-Toe with Valentine's Day them
 - [Usage](#usage)
 - [Technical Architecture](#technical-architecture)
 - [Asset Attribution](#asset-attribution)
-- [License](#license)
 
 ## Project Overview
 
@@ -58,3 +57,48 @@ npm start
 
 # Build platform-specific package
 npm run make
+
+
+**## Usage**
+Game Controls
+Action	Command
+Place Marker	Left Click
+Reset Game	Reset Button
+Quit Application	Standard OS Close
+AI Behavior Modes
+Win Prevention: Blocks player's potential winning moves
+
+Victory Pursuit: Prioritizes completing winning patterns
+
+Strategic Placement: Selects optimal positions when no immediate threats
+
+**##Technical Architecture**
+Technology Stack
+Component	Technology
+Core Framework	Electron 23.0.0
+UI Rendering	Chromium 110
+Game Logic	ES6 JavaScript
+Styling	CSS3
+Directory Structure
+Copy
+src/
+├── main-process/     # Electron main process files
+├── renderer-process/ # Game logic and UI components
+├── assets/           # Media resources
+│   ├── audio/        # Sound effects
+│   └── images/       # Visual assets
+├── styles/           # CSS files
+└── pages/            # Game state templates
+
+**##Asset Attribution**
+Visual Assets
+Custom Artwork: Original pixel art created by me using Figma
+
+Icon Design: SVG assets created specifically for this project
+
+Audio Assets
+Sound Effects: Licensed under Pixabay Content License
+
+Source: Pixabay Sound Collection
+
+Files modified for optimal playback performance
