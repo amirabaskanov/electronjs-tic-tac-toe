@@ -59,46 +59,59 @@ npm start
 npm run make
 ```
 
-**## Usage**
-Game Controls
-Action	Command
-Place Marker	Left Click
-Reset Game	Reset Button
-Quit Application	Standard OS Close
-AI Behavior Modes
-Win Prevention: Blocks player's potential winning moves
+## Usage
 
-Victory Pursuit: Prioritizes completing winning patterns
+### Game Controls
 
-Strategic Placement: Selects optimal positions when no immediate threats
+| Action                | Command           |
+|-----------------------|-------------------|
+| Place Marker          | Left Click        |
+| Reset Game            | Reset Button      |
+| Quit Application      | Standard OS Close |
 
-**##Technical Architecture**
-Technology Stack
-Component	Technology
-Core Framework	Electron 23.0.0
-UI Rendering	Chromium 110
-Game Logic	ES6 JavaScript
-Styling	CSS3
-Directory Structure
-Copy
+### AI Behavior Modes
+
+1. **Win Prevention**: Blocks player's potential winning moves  
+2. **Victory Pursuit**: Prioritizes completing winning patterns  
+3. **Strategic Placement**: Selects optimal positions when no immediate threats  
+
+---
+
+## Technical Architecture
+
+### Technology Stack
+
+| Component         | Technology        |
+|-------------------|-------------------|
+| Core Framework    | Electron 23.0.0   |
+| UI Rendering      | Chromium 110      |
+| Game Logic        | ES6 JavaScript    |
+| Styling           | CSS3              |
+
+### Directory Structure
+```
 src/
-├── main-process/     # Electron main process files
-├── renderer-process/ # Game logic and UI components
-├── assets/           # Media resources
-│   ├── audio/        # Sound effects
-│   └── images/       # Visual assets
-├── styles/           # CSS files
-└── pages/            # Game state templates
+├── main # Electron main process file
+├── renderer # Game logic and UI components
+├── preload # Electron preload process file
+├── assets/ # Media resources
+│ ├── sounds/ # Sound effects
+│ └── images/ # Visual assets
+│ └── animations/ # Animated visual assets
+│ └── fonts/ # Custom fonts
+├── styles/ # CSS files
+└── pages/ # Game state templates
+```
 
-**##Asset Attribution**
-Visual Assets
-Custom Artwork: Original pixel art created by me using Figma
+## Asset Attribution
 
-Icon Design: SVG assets created specifically for this project
+### Visual Assets
 
-Audio Assets
-Sound Effects: Licensed under Pixabay Content License
+- **Custom Artwork**: Original pixel art created by me using Figma  
+- **Icon Design**: ICNS assets created specifically for this project  
 
-Source: Pixabay Sound Collection
+### Audio Assets
 
-Files modified for optimal playback performance
+- **Sound Effects**: Licensed under Pixabay Content License  
+  - Source: [Pixabay Sound Collection](https://pixabay.com/sound-effects/)  
+  - Files modified for optimal playback performance  
